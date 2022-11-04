@@ -60,7 +60,7 @@ func main() {
 	charChecks := makePool(appendChecks, func(c paramCheck, output chan paramCheck) {
 		wasReflected, err := checkAppend(c.url, c.param, "x55hz33m")
 		if err != nil {
-			fmt.Fprintf(os.Stderr, "checkAppend() ERR for %s on PARAM: %s | %s", c.url, c.param, err)
+			fmt.Fprintf(os.Stderr, "ERR %s on PARAM: %s\n", c.url, c.param)
 			return
 		}
 
@@ -74,7 +74,7 @@ func main() {
 		for _, char := range []string{"\"", "'", "<", ">"} {
 			wasReflected, err := checkAppend(c.url, c.param, "pf1x"+char+"sf1x")
 			if err != nil {
-				fmt.Fprintf(os.Stderr, "checkAppend() ERR for %s on PARAM: %s=%s | %s", c.url, c.param, char, err)
+				fmt.Fprintf(os.Stderr, "ERR on [%s=%s] @ %s\n", c.url, c.param, char)
 				continue
 			}
 
@@ -83,7 +83,7 @@ func main() {
 			}
 		}
 		if len(output_of_url) >= 2 {
-			fmt.Printf("PARAM: %s = %v @ %s\n", output_of_url[1], output_of_url[2:], output_of_url[0])
+			fmt.Printf("%s = %v @ %s\n", output_of_url[1], output_of_url[2:], output_of_url[0])
 		}
 	})
 
