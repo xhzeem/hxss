@@ -8,6 +8,7 @@ go install github.com/xhzeem/hxss@latest
 
 ## Usage
 ```bash
-echo "http://xhzeem.me/?param=1" | hxss
+➜ xhzeem $ echo "http://xhzeem.me/?param=1" | hxss
+
 param = [" ' < >] @ http://xhzeem.me/?param=1
 ```
